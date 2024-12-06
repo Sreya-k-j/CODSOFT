@@ -29,6 +29,9 @@ df_filled = df.fillna(0)
 user_similarity = cosine_similarity(df_filled)
 user_similarity_df = pd.DataFrame(user_similarity, index=df.index, columns=df.index)
 
+print("\nUser Similarity Matrix:")
+print(user_similarity_df)
+
 def recommend_movies(user, num_recommendations=2):
     # Get the similarity scores for the target user
     similarity_scores = user_similarity_df[user].drop(user)  # Exclude the user themself
